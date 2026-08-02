@@ -1,299 +1,186 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="bn">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>For Marufa ❤️</title>
-    
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
-
+    <title>A Special Surprise For You ❤️</title>
     <style>
         * {
+            box-sizing: border-box;
             margin: 0;
             padding: 0;
-            box-sizing: border-box;
-            font-family: 'Poppins', sans-serif;
+            font-family: 'Poppins', sans-serif, 'SolaimanLipi';
         }
-
         body {
-            background: linear-gradient(135deg, #ffafbd, #ffc3a0);
+            background: linear-gradient(135deg, #ffe6eb 0%, #ffc0cb 100%);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
             overflow: hidden;
-            color: white;
         }
-
-        .page {
-            position: absolute;
+        .slider-container {
+            position: relative;
+            width: 90%;
+            max-width: 400px;
+            height: 600px;
+            background: #fff5f7;
+            border-radius: 20px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+            overflow: hidden;
+            border: 8px solid #ffffff;
+        }
+        .slides {
+            display: flex;
             width: 100%;
-            height: 100vh;
+            height: 100%;
+            transition: transform 0.4s ease-in-out;
+        }
+        .slide {
+            min-width: 100%;
+            height: 100%;
+            padding: 20px;
             display: flex;
             flex-direction: column;
-            justify-content: center;
             align-items: center;
+            justify-content: center;
             text-align: center;
-            padding: 25px;
-            opacity: 0;
-            transform: translateX(100%);
-            transition: 0.7s ease-in-out;
+            position: relative;
         }
-
-        .page.active {
-            opacity: 1;
-            transform: translateX(0);
-        }
-
-        img {
-            width: 260px;
-            height: 350px;
+        /* Card Styles */
+        .img-card {
+            width: 100%;
+            height: 75%;
             object-fit: cover;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.15);
+            border: 4px solid #fff;
+        }
+        .quote-box {
+            background: #ffffffd0;
+            padding: 10px 15px;
             border-radius: 20px;
-            box-shadow: 0 0 25px rgba(255, 255, 255, .4);
-            margin-bottom: 20px;
+            margin-top: 15px;
+            font-size: 14px;
+            color: #d63384;
+            font-weight: bold;
         }
-
-        h1 {
-            font-size: 34px;
-            margin-bottom: 15px;
-        }
-
-        h2 {
-            font-size: 24px;
-            margin-bottom: 15px;
-        }
-
-        p {
-            font-size: 16px;
-            line-height: 26px;
-            max-width: 420px;
-        }
-
-        button {
-            margin-top: 25px;
-            padding: 12px 30px;
-            font-size: 16px;
-            border: none;
-            border-radius: 40px;
-            background: #ff2e63;
-            color: #fff;
-            cursor: pointer;
-            transition: .3s;
-            box-shadow: 0 4px 15px rgba(255, 46, 99, 0.4);
-        }
-
-        button:hover {
-            transform: scale(1.08);
-        }
-
-        /* Letter Card Style */
-        .letter {
-            background: rgba(255, 255, 255, .15);
-            backdrop-filter: blur(10px);
+        .letter-box {
+            background: #fff;
             padding: 20px;
-            border-radius: 20px;
-            max-width: 500px;
-            box-shadow: 0 0 25px rgba(255, 255, 255, .25);
-            max-height: 55vh;
-            overflow-y: auto;
+            border-radius: 15px;
+            border: 2px dashed #ffb6c1;
+            color: #4a4a4a;
+            font-size: 15px;
+            line-height: 1.6;
         }
-
-        .letter p {
-            line-height: 28px;
-            font-size: 16px;
-        }
-
-        /* Balloon Section Style */
-        .balloons {
-            display: flex;
-            gap: 15px;
-            flex-wrap: wrap;
-            justify-content: center;
-            margin: 25px 0;
-        }
-
-        .balloon {
-            width: 70px;
-            height: 70px;
-            border-radius: 50%;
-            background: #ff4d88;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            font-size: 30px;
-            cursor: pointer;
-            transition: transform 0.3s, opacity 0.3s;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-        }
-
-        .balloon:hover {
-            transform: scale(1.15);
-        }
-
-        .pop {
-            transform: scale(0);
-            opacity: 0;
-            pointer-events: none;
-        }
-
-        /* Floating Hearts Animation */
-        .heart {
+        /* Navigation Buttons */
+        .btn {
             position: absolute;
-            color: #fff;
-            font-size: 20px;
-            animation: float 8s linear infinite;
-            opacity: .7;
-            pointer-events: none;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(255, 255, 255, 0.8);
+            border: none;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 18px;
+            color: #ff4d6d;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+            z-index: 10;
         }
-
-        @keyframes float {
-            0% {
-                transform: translateY(100vh) rotate(0deg);
-            }
-            100% {
-                transform: translateY(-100vh) rotate(360deg);
-            }
+        .prev { left: 10px; }
+        .next { right: 10px; }
+        
+        /* Dots Indicator */
+        .dots {
+            position: absolute;
+            bottom: 15px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 8px;
+        }
+        .dot {
+            width: 8px;
+            height: 8px;
+            background: #ccc;
+            border-radius: 50%;
+        }
+        .dot.active {
+            background: #ff4d6d;
+            width: 12px;
+            border-radius: 10px;
         }
     </style>
 </head>
 <body>
 
-    <!-- Background Music -->
-    <audio id="bgMusic" loop>
-        <source src="music.mp3" type="audio/mpeg">
-    </audio>
+<div class="slider-container">
+    <button class="btn prev" onclick="moveSlide(-1)">&#10094;</button>
+    <button class="btn next" onclick="moveSlide(1)">&#10095;</button>
 
-    <!-- Page 1: Intro -->
-    <section class="page active">
-        <h1>💖 A Little Something For...</h1>
-        <h2>Marufa (Moon Fairy 😘)</h2>
-        <p>Before you continue...<br>Please open your heart. 🤍</p>
-        <button onclick="startExperience()">❤️ Open My Heart</button>
-    </section>
-
-    <!-- Page 2: Photo 1 -->
-    <section class="page">
-        <img src="img1.jpg" alt="Photo 1">
-        <h2>You're My Favourite Person ❤️</h2>
-        <p>Every smile of yours makes my world brighter.</p>
-        <button onclick="nextPage()">Next ➜</button>
-    </section>
-
-    <!-- Page 3: Letter -->
-    <section class="page">
-        <h1>💌 A Letter For You</h1>
-        <div class="letter">
-            <p>
-                মারুফা, যদি পারো আমাকে ক্ষমা করে দিও। 🤍<br><br>
-                অনেক চেষ্টা করেছি নিজের অনুভূতিগুলো বদলে ফেলতে, কিন্তু পারিনি।<br><br>
-                সত্যি বলতে, আমি আবারও নতুন করে তোমার প্রেমে পড়ে গেছি।<br><br>
-                জানি না এবারও তুমি আমাকে রিজেক্ট করবে কি না।<br><br>
-                তোমার ওপর কোনো চাপ দিতে চাই না।<br><br>
-                শুধু এতটুকু বলতে চাই— এই কথাগুলো বুকের ভেতর চেপে রাখা দিন দিন কঠিন হয়ে যাচ্ছে।<br><br>
-                তাই আজ বলে ফেললাম...<br><br>
-                ❤️ Moon Fairy, I Love You ❤️<br><br>
-                Do You Love Me Too? 🤍<br><br>
-                — Kawser
-            </p>
+    <div class="slides" id="slides">
+        <!-- Slide 1: First Photo -->
+        <div class="slide">
+            <img src="https://via.placeholder.com/350x450" class="img-card" alt="Photo 1">
+            <div class="quote-box">"You're my favorite person." ✨</div>
         </div>
-        <button onclick="nextPage()">Continue ❤️</button>
-    </section>
 
-    <!-- Page 4: Photo 2 -->
-    <section class="page">
-        <img src="img2.jpg" alt="Photo 2">
-        <h2>You Are Beautiful 🌸</h2>
-        <p>I never get tired of looking at you.</p>
-        <button onclick="nextPage()">Next ➜</button>
-    </section>
-
-    <!-- Page 5: Photo 3 -->
-    <section class="page">
-        <img src="img3.jpg" alt="Photo 3">
-        <h2>My Happiness ✨</h2>
-        <p>You make me happy in a way no one else can.</p>
-        <button onclick="nextPage()">Next ➜</button>
-    </section>
-
-    <!-- Page 6: Photo 4 -->
-    <section class="page">
-        <img src="img4.jpg" alt="Photo 4">
-        <h2>Today & All My Tomorrows 💖</h2>
-        <p>Holding your memories close to my heart forever.</p>
-        <button onclick="nextPage()">Next ➜</button>
-    </section>
-
-    <!-- Page 7: Balloons -->
-    <section class="page">
-        <h1>🎈 Pop The Balloons 🎈</h1>
-        <p>Touch every balloon ❤️</p>
-        <div class="balloons">
-            <div class="balloon" onclick="pop(this)">❤️</div>
-            <div class="balloon" onclick="pop(this)">🌹</div>
-            <div class="balloon" onclick="pop(this)">🥰</div>
-            <div class="balloon" onclick="pop(this)">💖</div>
-            <div class="balloon" onclick="pop(this)">✨</div>
+        <!-- Slide 2: Message/Letter -->
+        <div class="slide">
+            <div class="letter-box">
+                <h3>A little something for you ❤️</h3>
+                <br>
+                <p>মারুফা, যদি পারো আমাকে ক্ষমা করে দিও। অনেক চেষ্টা করেছি নিজের অনুভূতিগুলো বদলে ফেলতে, কিন্তু পারিনি। আমি আবারও নতুন করে তোমার প্রেমে পড়ে গেছি...</p>
+                <br>
+                <b>— Kawser</b>
+            </div>
         </div>
-        <button onclick="nextPage()">Final ❤️</button>
-    </section>
 
-    <!-- Page 8: Final Proposal -->
-    <section class="page">
-        <h1>❤️ Marufa ❤️</h1>
-        <h2>My Moon Fairy 🌙</h2>
-        <p>
-            I don't want to force you.<br>
-            I only wanted you to know how much I truly love you.<br><br>
-            No matter what your answer is...<br>
-            You'll always have a special place inside my heart. 🤍
-        </p>
-        <br>
-        <h2>Will You Give Me One More Chance?</h2>
-        <div style="display: flex; gap: 15px; justify-content: center;">
-            <button onclick="alert('❤️ Thank You For Reading ❤️')">YES ❤️</button>
-            <button onclick="location.reload()">Read Again 🤍</button>
+        <!-- Slide 3: Second Photo -->
+        <div class="slide">
+            <img src="https://via.placeholder.com/350x450" class="img-card" alt="Photo 2">
+            <div class="quote-box">I love you, Moon Fairy 🌙</div>
         </div>
-    </section>
 
-    <script>
-        const pages = document.querySelectorAll(".page");
-        let current = 0;
+        <!-- Slide 4: Interactive Heart/Pop Slide -->
+        <div class="slide">
+            <h2 style="color: #ff4d6d; margin-bottom: 20px;">Open the Heart 💖</h2>
+            <button onclick="alert('I Love You! 🌸')" style="padding: 12px 25px; background: #ff4d6d; color: white; border: none; border-radius: 25px; font-size: 16px; cursor: pointer; box-shadow: 0 4px 10px rgba(255,77,109,0.3);">
+                Tap to Open! 💌
+            </button>
+        </div>
+    </div>
 
-        function startExperience() {
-            const music = document.getElementById("bgMusic");
-            if (music) {
-                music.play().catch(e => console.log("Music autoplay prevented"));
-            }
-            nextPage();
-        }
+    <!-- Page Indicator Dots -->
+    <div class="dots">
+        <span class="dot active"></span>
+        <span class="dot"></span>
+        <span class="dot"></span>
+        <span class="dot"></span>
+    </div>
+</div>
 
-        function nextPage() {
-            pages[current].classList.remove("active");
-            current++;
-            if (current >= pages.length) {
-                current = pages.length - 1;
-            }
-            pages[current].classList.add("active");
-        }
+<script>
+    let currentIndex = 0;
+    const slides = document.getElementById('slides');
+    const dots = document.querySelectorAll('.dot');
+    const totalSlides = 4;
 
-        function pop(element) {
-            element.classList.add("pop");
-        }
+    function moveSlide(direction) {
+        currentIndex += direction;
+        if (currentIndex < 0) currentIndex = 0;
+        if (currentIndex >= totalSlides) currentIndex = totalSlides - 1;
+        
+        slides.style.transform = `translateX(-${currentIndex * 100}%)`;
+        
+        dots.forEach((dot, index) => {
+            dot.classList.toggle('active', index === currentIndex);
+        });
+    }
+</script>
 
-        // Floating Hearts Animation
-        function createHeart() {
-            const heart = document.createElement("div");
-            heart.classList.add("heart");
-            heart.innerHTML = "❤️";
-            heart.style.left = Math.random() * 100 + "vw";
-            heart.style.fontSize = (15 + Math.random() * 25) + "px";
-            heart.style.animationDuration = (4 + Math.random() * 5) + "s";
-            document.body.appendChild(heart);
-
-            setTimeout(() => {
-                heart.remove();
-            }, 8000);
-        }
-
-        setInterval(createHeart, 300);
-    </script>
 </body>
 </html>
