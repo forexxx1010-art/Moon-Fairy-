@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>For Marufa ❤️</title>
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            background: linear-gradient(135deg, #ffafbd, #ffc3a0);
+            overflow: hidden;
+            color: white;
+        }
+
+        .page {
+            position: absolute;
+            width: 100%;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 25px;
+            opacity: 0;
+            transform: translateX(100%);
+            transition: 0.7s ease-in-out;
+        }
+
+        .page.active {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        img {
+            width: 260px;
+            height: 350px;
+            object-fit: cover;
+            border-radius: 20px;
+            box-shadow: 0 0 25px rgba(255, 255, 255, .4);
+            margin-bottom: 20px;
+        }
+
+        h1 {
+            font-size: 34px;
+            margin-bottom: 15px;
+        }
+
+        h2 {
+            font-size: 24px;
+            margin-bottom: 15px;
+        }
+
+        p {
+            font-size: 16px;
+            line-height: 26px;
+            max-width: 420px;
+        }
+
+        button {
+            margin-top: 25px;
+            padding: 12px 30px;
+            font-size: 16px;
+            border: none;
+            border-radius: 40px;
+            background: #ff2e63;
+            color: #fff;
+            cursor: pointer;
+            transition: .3s;
+            box-shadow: 0 4px 15px rgba(255, 46, 99, 0.4);
+        }
+
+        button:hover {
+            transform: scale(1.08);
+        }
+
+        /* Letter Card Style */
+        .letter {
+            background: rgba(255, 255, 255, .15);
+            backdrop-filter: blur(10px);
+            padding: 20px;
+            border-radius: 20px;
+            max-width: 500px;
+            box-shadow: 0 0 25px rgba(255, 255, 255, .25);
+            max-height: 55vh;
+            overflow-y: auto;
+        }
+
+        .letter p {
+            line-height: 28px;
+            font-size: 16px;
+        }
+
+        /* Balloon Section Style */
+        .balloons {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin: 25px 0;
+        }
+
+        .balloon {
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            background: #ff4d88;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 30px;
+            cursor: pointer;
+            transition: transform 0.3s, opacity 0.3s;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .balloon:hover {
+            transform: scale(1.15);
+        }
+
+        .pop {
+            transform: scale(0);
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        /* Floating Hearts Animation */
+        .heart {
+            position: absolute;
+            color: #fff;
+            font-size: 20px;
+            animation: float 8s linear infinite;
+            opacity: .7;
+            pointer-events: none;
+        }
+
+        @keyframes float {
+            0% {
+                transform: translateY(100vh) rotate(0deg);
+            }
+            100% {
+                transform: translateY(-100vh) rotate(360deg);
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Background Music -->
+    <audio id="bgMusic" loop>
+        <source src="music.mp3" type="audio/mpeg">
+    </audio>
+
+    <!-- Page 1: Intro -->
+    <section class="page active">
+        <h1>💖 A Little Something For...</h1>
+        <h2>Marufa (Moon Fairy 😘)</h2>
+        <p>Before you continue...<br>Please open your heart. 🤍</p>
+        <button onclick="startExperience()">❤️ Open My Heart</button>
+    </section>
+
+    <!-- Page 2: Photo 1 -->
+    <section class="page">
+        <img src="img1.jpg" alt="Photo 1">
+        <h2>You're My Favourite Person ❤️</h2>
+        <p>Every smile of yours makes my world brighter.</p>
+        <button onclick="nextPage()">Next ➜</button>
+    </section>
+
+    <!-- Page 3: Letter -->
+    <section class="page">
+        <h1>💌 A Letter For You</h1>
+        <div class="letter">
+            <p>
+                মারুফা, যদি পারো আমাকে ক্ষমা করে দিও। 🤍<br><br>
+                অনেক চেষ্টা করেছি নিজের অনুভূতিগুলো বদলে ফেলতে, কিন্তু পারিনি।<br><br>
+                সত্যি বলতে, আমি আবারও নতুন করে তোমার প্রেমে পড়ে গেছি।<br><br>
+                জানি না এবারও তুমি আমাকে রিজেক্ট করবে কি না।<br><br>
+                তোমার ওপর কোনো চাপ দিতে চাই না।<br><br>
+                শুধু এতটুকু বলতে চাই— এই কথাগুলো বুকের ভেতর চেপে রাখা দিন দিন কঠিন হয়ে যাচ্ছে।<br><br>
+                তাই আজ বলে ফেললাম...<br><br>
+                ❤️ Moon Fairy, I Love You ❤️<br><br>
+                Do You Love Me Too? 🤍<br><br>
+                — Kawser
+            </p>
+        </div>
+        <button onclick="nextPage()">Continue ❤️</button>
+    </section>
+
+    <!-- Page 4: Photo 2 -->
+    <section class="page">
+        <img src="img2.jpg" alt="Photo 2">
+        <h2>You Are Beautiful 🌸</h2>
+        <p>I never get tired of looking at you.</p>
+        <button onclick="nextPage()">Next ➜</button>
+    </section>
+
+    <!-- Page 5: Photo 3 -->
+    <section class="page">
+        <img src="img3.jpg" alt="Photo 3">
+        <h2>My Happiness ✨</h2>
+        <p>You make me happy in a way no one else can.</p>
+        <button onclick="nextPage()">Next ➜</button>
+    </section>
+
+    <!-- Page 6: Photo 4 -->
+    <section class="page">
+        <img src="img4.jpg" alt="Photo 4">
+        <h2>Today & All My Tomorrows 💖</h2>
+        <p>Holding your memories close to my heart forever.</p>
+        <button onclick="nextPage()">Next ➜</button>
+    </section>
+
+    <!-- Page 7: Balloons -->
+    <section class="page">
+        <h1>🎈 Pop The Balloons 🎈</h1>
+        <p>Touch every balloon ❤️</p>
+        <div class="balloons">
+            <div class="balloon" onclick="pop(this)">❤️</div>
+            <div class="balloon" onclick="pop(this)">🌹</div>
+            <div class="balloon" onclick="pop(this)">🥰</div>
+            <div class="balloon" onclick="pop(this)">💖</div>
+            <div class="balloon" onclick="pop(this)">✨</div>
+        </div>
+        <button onclick="nextPage()">Final ❤️</button>
+    </section>
+
+    <!-- Page 8: Final Proposal -->
+    <section class="page">
+        <h1>❤️ Marufa ❤️</h1>
+        <h2>My Moon Fairy 🌙</h2>
+        <p>
+            I don't want to force you.<br>
+            I only wanted you to know how much I truly love you.<br><br>
+            No matter what your answer is...<br>
+            You'll always have a special place inside my heart. 🤍
+        </p>
+        <br>
+        <h2>Will You Give Me One More Chance?</h2>
+        <div style="display: flex; gap: 15px; justify-content: center;">
+            <button onclick="alert('❤️ Thank You For Reading ❤️')">YES ❤️</button>
+            <button onclick="location.reload()">Read Again 🤍</button>
+        </div>
+    </section>
+
+    <script>
+        const pages = document.querySelectorAll(".page");
+        let current = 0;
+
+        function startExperience() {
+            const music = document.getElementById("bgMusic");
+            if (music) {
+                music.play().catch(e => console.log("Music autoplay prevented"));
+            }
+            nextPage();
+        }
+
+        function nextPage() {
+            pages[current].classList.remove("active");
+            current++;
+            if (current >= pages.length) {
+                current = pages.length - 1;
+            }
+            pages[current].classList.add("active");
+        }
+
+        function pop(element) {
+            element.classList.add("pop");
+        }
+
+        // Floating Hearts Animation
+        function createHeart() {
+            const heart = document.createElement("div");
+            heart.classList.add("heart");
+            heart.innerHTML = "❤️";
+            heart.style.left = Math.random() * 100 + "vw";
+            heart.style.fontSize = (15 + Math.random() * 25) + "px";
+            heart.style.animationDuration = (4 + Math.random() * 5) + "s";
+            document.body.appendChild(heart);
+
+            setTimeout(() => {
+                heart.remove();
+            }, 8000);
+        }
+
+        setInterval(createHeart, 300);
+    </script>
+</body>
+</html>
